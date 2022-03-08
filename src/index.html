@@ -180,7 +180,9 @@
       </ul>
     </main>
     <section id="the-modal" class="modal d-none">
-      <span class="close-modal" id="modal-closer"><i class="fa-solid fa-xmark"></i></span>
+      <span class="close-modal" id="modal-closer"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
       <div class="modal-content container">
         <div class="thumbnail">
           <iframe
@@ -188,7 +190,6 @@
             height="480"
             src="https://www.youtube.com/embed/4aZr5hZXP_s"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
@@ -196,11 +197,12 @@
             <h2>Name: Samosa</h2>
             <span>Category: []</span>
             <span>Area: []</span>
+            <h3>Instructions</h3>
             <p>
-              <h3>Instructions</h3> Preheat oven to 350° F. Spray a 9x13-inch baking pan
-              with non-stick spray.\r\nCombine soy sauce, ½ cup water, brown
-              sugar, ginger and garlic in a small saucepan and cover. Bring to a
-              boil over medium heat. Remove lid and cook for one minute once
+              Preheat oven to 350° F. Spray a 9x13-inch baking pan with
+              non-stick spray.\r\nCombine soy sauce, ½ cup water, brown sugar,
+              ginger and garlic in a small saucepan and cover. Bring to a boil
+              over medium heat. Remove lid and cook for one minute once
               boiling.\r\nMeanwhile, stir together the corn starch and 2
               tablespoons of water in a separate dish until smooth. Once sauce
               is boiling, add mixture to the saucepan and stir to combine. Cook
@@ -219,24 +221,30 @@
             </p>
           </div>
         </div>
-		<section class="comments-container">
-			<h2>Comments</h2>
-			<ul class="comments">
-				<li class="comment">31/2/2022: Ndimangwa. Like it.</li>
-				<li class="comment">31/3/2022: Mwakalebela. Like it.</li>
-			</ul>
-		</section>
+        <section class="comments-container">
+          <h2>Comments</h2>
+          <ul class="comments">
+            <li class="comment">31/2/2022: Ndimangwa. Like it.</li>
+            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
+          </ul>
+        </section>
         <form class="comment-form" id="add-comment" action="#">
           <fieldset class="comment-fieldset d-flex">
-			  <legend><h2>Add a Comment</h2></legend>
-			  <label for="name">
-				<input required type="text" id="name" placeholder="Your name" />
-			  </label>
-			  <label for="insights">
-				<textarea required cols="30" rows="10" id="insights" placeholder="Your insights"></textarea>
-			  </label>
-			  <button type="submit">Comment</button>
-		  </fieldset>
+            <legend><h2>Add a Comment</h2></legend>
+            <label for="name">
+              <input required type="text" id="name" placeholder="Your name" />
+            </label>
+            <label for="insights">
+              <textarea
+                required
+                cols="30"
+                rows="10"
+                id="insights"
+                placeholder="Your insights"
+              ></textarea>
+            </label>
+            <button type="submit">Comment</button>
+          </fieldset>
         </form>
       </div>
     </section>
