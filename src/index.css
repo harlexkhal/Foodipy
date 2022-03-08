@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  margin: 0;
 }
 
 ul {
@@ -20,8 +21,23 @@ a {
   text-decoration: none;
 }
 
-.items {
-  grid-template-columns: repeat(3, 1fr)
+h2 span {
+  font-size: small;
+}
+
+footer {
+  border-top: black 1px solid;
+  height: 10vh;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.comments {
+  font-size: large;
+}
+
+.comments:hover {
+  cursor: pointer;
 }
 
 @import url('./utility.css');
