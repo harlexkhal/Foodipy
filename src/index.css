@@ -91,6 +91,7 @@ footer {
 
 .modal iframe {
   width: 100%;
+  border: none;
 }
 
 @import url('./utility.css');
