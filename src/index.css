@@ -32,7 +32,8 @@ legend {
   text-align: center;
 }
 
-input, textarea {
+input,
+textarea {
   width: 30vw;
   height: 5vh;
   padding: 0.5rem 0.3rem;
@@ -45,7 +46,8 @@ textarea {
   resize: none;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   font-size: large;
 }
 
