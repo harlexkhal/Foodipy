@@ -1,7 +1,7 @@
 import Window from '../custom_modules/application/window';
 
-describe('Food Application ', () => {
-    test('Home page item count', () => {
+describe('Food Items', () => {
+    test('Count Items', () => {
         document.body.innerHTML =
         '<div>' +
         '  <ul class="meal-content"></ul>' +
