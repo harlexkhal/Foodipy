@@ -42,8 +42,8 @@
 
 .close-modal {
   font-size: larger;
-  position: absolute;
-  right: 1rem;
+  position: fixed;
+  right: 8rem;
   top: 1rem;
 }
 
