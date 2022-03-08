@@ -5,6 +5,7 @@
   "main": "script.js",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free": "^6.0.0",
     "acorn": "^7.4.1",
     "acorn-jsx": "^5.3.2",
     "ansi-colors": "^4.1.1",
