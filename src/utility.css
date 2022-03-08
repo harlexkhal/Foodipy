@@ -17,6 +17,14 @@
   display: grid;
 }
 
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
 .navbar {
   align-items: baseline;
   justify-content: space-between;
