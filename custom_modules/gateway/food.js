@@ -2,7 +2,7 @@ import NetworkGateway from './gateway.js';
 
 class FoodNetwork extends NetworkGateway {
   constructor() {
-    super('www.themealdb.com/api/json/v1/1/');
+    super('https://www.themealdb.com/api/json/v1/1/');
   }
 
   getItemByID = async (id) => {

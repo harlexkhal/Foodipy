@@ -3,7 +3,7 @@ import Window from './window.js';
 
 class ApplicationEngine {
   constructor() {
-    this.fooAPIConnection = new FoodNetwork();
+    this.foodAPIConnection = new FoodNetwork();
     this.window = new Window();
   }
 
@@ -12,12 +12,11 @@ class ApplicationEngine {
   }
 
   fetchFoodItems = () => {
-    const res = this.fooAPIConnection.fetchAllCategories();
+    const res = this.foodAPIConnection.fetchAllCategories();
     res.then((data) => {
       const categoryList = data.meals;
       const rand = Math.floor(Math.random() * categoryList.length);
-
-      const promiseRes = this.fooAPIConnection.getItemsByCategory(categoryList[rand]);
+      const promiseRes = this.foodAPIConnection.getItemsByCategory(categoryList[rand].strCategory);
       promiseRes.then((data) => {
         this.window.displayItems(data.meals);
       })
@@ -31,7 +30,7 @@ class ApplicationEngine {
   }
 
   FetchFoodItemByID = (id) => {
-    const res = this.fooAPIConnection.getItemByID(id);
+    const res = this.foodAPIConnection.getItemByID(id);
     res.then((data) => {
       this.window.displayItem(data.meals);
     })

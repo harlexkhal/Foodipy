@@ -1,5 +1,6 @@
 class NetworkGateway {
   constructor(src) {
+    this.baseurl = '';
     this.start(src);
   }
 
