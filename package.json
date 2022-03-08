@@ -4,6 +4,7 @@
   "description": "> JavaScript-Capstone",
   "main": "script.js",
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
     "acorn": "^7.4.1",
     "acorn-jsx": "^5.3.2",
     "ansi-colors": "^4.1.1",
@@ -94,7 +95,8 @@
   "scripts": {
     "build": "webpack --mode development",
     "start": "webpack serve --open",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",

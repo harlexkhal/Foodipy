@@ -1,0 +1,25 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.navbar {
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+.nav-item:last-of-type {
+    margin-right: none;
+}

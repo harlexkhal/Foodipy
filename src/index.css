@@ -1,3 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   overflow-x: hidden;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  width: 50%;
+  height: 20vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.items {
+  grid-template-columns: repeat(3, 1fr)
+}
+
+@import url('./utility.css');
