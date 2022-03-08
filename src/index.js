@@ -1,8 +1,8 @@
 import './index.css';
-import Application from '../custom_modules/application/application.js';
 import '@fortawesome/fontawesome-free/js/all.js';
+import ApplicationEngine from '../custom_modules/application/application.js';
 
-const application = new Application();
+const application = new ApplicationEngine();
 application.start();
 
 const modal = document.querySelector('#the-modal');

@@ -1,9 +1,11 @@
 class NetworkGateway {
-  constructor() {
-    this.dbFood_baseurl = '';
-    this.dbUser_baseurl = '';
+  constructor(src) {
+    this.baseurl = '';
+    this.start(src);
   }
 
-  start = () => {}
+  start = (srcLink) => {
+    this.baseurl = srcLink;
+  }
 }
 export default NetworkGateway;
