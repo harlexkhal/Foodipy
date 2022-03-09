@@ -10,6 +10,8 @@ class Window {
     this.itemAreaModal = document.querySelector('.modal-item-area');
     this.itemVideoModal = document.querySelector('.modal-item-video');
     this.itemDescription = document.querySelector('.modal-item-description');
+    this.itemComments = document.querySelector('.user-comments');
+    this.itemCommentsCounter = document.querySelector('.comment-count-info');
   }
 
   displayItems = (items, likes) => {
@@ -53,7 +55,18 @@ class Window {
     const ID = videoUrl.pop();
     this.itemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
     this.itemDescription.innerHTML = item.strInstructions;
+    this.itemComments.innerHTML = '<li class="comment red-text">Comment on this meal to see other comments! if exist</li>';
+    this.itemCommentsCounter.innerHTML = 'Comments (0)';
     this.hideLoader();
+  }
+
+  displayItemComments = (comments) => {
+    let domContent = '';
+    comments.forEach((comment) => {
+      domContent = `${domContent}<li class="comment"><i>${comment.creation_date}: </i> <span class="red-text">${comment.username}:</span> <span class="green-text">${comment.comment}</span></li>`;
+    });
+    this.itemComments.innerHTML = domContent;
+    this.itemCommentsCounter.innerHTML = `Comments (${comments.length})`;
   }
 
   showLoader = () => {
@@ -88,6 +101,12 @@ class Window {
 
   openModalAction = () => document.querySelector('#the-modal');
 
+  commentformAction = () => document.querySelector('.comment-form');
+
+  commentformNameInputAction = () => document.querySelector('.username');
+
+  commentformBodyInputAction = () => document.querySelector('.comment-body');
+
   closeModalAction = () => document.querySelector('#modal-closer');
 
   commentsButtonAction = () => document.querySelectorAll('.view-comments');
@@ -99,5 +118,7 @@ class Window {
   likeItemAction = () => document.querySelectorAll('.item-likes');
 
   likeCounterAction = () => document.querySelectorAll('.heart-counter');
+
+  commentsListAction = () => this.itemComments;
 }
 export default Window;

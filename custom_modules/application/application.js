@@ -11,6 +11,7 @@ class ApplicationEngine {
     this.window = new Window();
     this.items = [];
     this.currCategory = '';
+    this.currSelectedItemID = -1;
   }
 
   start = () => {
@@ -45,7 +46,11 @@ class ApplicationEngine {
     this.window.showLoader();
     const res = this.foodAPIConnection.getItemByID(id);
     res.then((data) => {
-      this.window.displayItem(data.meals[0]);
+      const iRes = this.involvmentConnection.getComments(id);
+      iRes.then(() => {
+        this.currSelectedItemID = id;
+        this.window.displayItem(data.meals[0]);
+      });
     })
       .catch((error) => {
         throw error;
@@ -54,6 +59,10 @@ class ApplicationEngine {
 
   addLikeToItem = (id) => {
     this.involvmentConnection.addLike(id);
+  }
+
+  addCommentToItem = (itemId, userName, comment) => {
+    this.involvmentConnection.addComment(itemId, userName, comment);
   }
 
   #bindEvents = () => {
@@ -123,6 +132,23 @@ class ApplicationEngine {
         modal.classList.remove('d-block');
         modal.classList.add('d-none');
       }
+    });
+
+    const form = this.window.commentformAction();
+    form.addEventListener('submit', (event) => {
+      const nameInput = this.window.commentformNameInputAction();
+      const commentBody = this.window.commentformBodyInputAction();
+      this.addCommentToItem(this.currSelectedItemID, nameInput.value, commentBody.value);
+      nameInput.value = '';
+      commentBody.value = '';
+      this.window.commentsListAction().innerHTML = '<i class="green-text">Loading all comments ...<i>';
+      setTimeout(() => {
+        const iRes = this.involvmentConnection.getComments(this.currSelectedItemID);
+        iRes.then((comments) => {
+          this.window.displayItemComments(comments);
+        });
+      }, 800);
+      event.preventDefault();
     });
 
     const winRef = this.window;
