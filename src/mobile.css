@@ -1,23 +1,24 @@
 @media screen and (max-width: 960px) {
-    .items {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .d-flex {
-        flex-direction: column;
-    }
-    .container {
-        max-width: 75%;
-    }
-    .navbar {
-        margin-top: 2rem;
-        align-items: center;
-    }
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .container {
+    max-width: 75%;
+  }
+
+  .navbar {
+    margin-top: 2rem;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .items {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
+  .items {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
