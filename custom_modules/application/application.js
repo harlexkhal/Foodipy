@@ -3,6 +3,7 @@ import Window from './window.js';
 
 class ApplicationEngine {
   constructor() {
+    this.appID = '67oBuyY7KZB5pSttCJfs';
     this.foodAPIConnection = new FoodNetwork();
     this.window = new Window();
     this.items = [];
