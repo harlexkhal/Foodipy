@@ -1,12 +1,16 @@
 import FoodNetwork from '../gateway/food.js';
+import InteractionGateway from '../gateway/interaction.js';
 import Window from './window.js';
 
 class ApplicationEngine {
   constructor() {
-    this.appID = '67oBuyY7KZB5pSttCJfs';
+    this.appID = 'LWKqOYwzRz4RLPAnwcTk';
     this.foodAPIConnection = new FoodNetwork();
+    this.involvmentConnection = new InteractionGateway(this.appID);
+
     this.window = new Window();
     this.items = [];
+    this.currCategory = '';
   }
 
   start = () => {
@@ -18,11 +22,15 @@ class ApplicationEngine {
     res.then((data) => {
       const categoryList = data.meals;
       const rand = Math.floor(Math.random() * categoryList.length);
-      const promiseRes = this.foodAPIConnection.getItemsByCategory(categoryList[rand].strCategory);
+      this.currCategory = categoryList[rand].strCategory;
+      const promiseRes = this.foodAPIConnection.getItemsByCategory(this.currCategory);
       promiseRes.then((data) => {
-        this.items = data.meals;
-        this.window.displayItems(this.items);
-        this.#bindEvents();
+        const iRes = this.involvmentConnection.getLIkes();
+        iRes.then((likes) => {
+          this.items = data.meals;
+          this.window.displayItems(this.items, likes);
+          this.#bindEvents();
+        })
       })
         .catch((error) => {
           throw error;
@@ -44,6 +52,10 @@ class ApplicationEngine {
       });
   }
 
+  addLikeToItem = (id) => {
+    this.involvmentConnection.addLike(id);
+  }
+
   #bindEvents = () => {
     const modal = this.window.openModalAction();
     const modalCloser = this.window.closeModalAction();
@@ -58,7 +70,7 @@ class ApplicationEngine {
         const refEvent = event.currentTarget;
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
-        refEvent.ref.FetchFoodItemByID(refEvent.ref.Items[refEvent.index].idMeal);
+        refEvent.ref.FetchFoodItemByID(refEvent.ref.items[refEvent.index].idMeal);
       });
       span.ref = this;
       span.index = i;
@@ -70,10 +82,27 @@ class ApplicationEngine {
         const refEvent = event.currentTarget;
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
-        refEvent.ref.FetchFoodItemByID(refEvent.ref.Items[refEvent.index].idMeal);
+        refEvent.ref.FetchFoodItemByID(refEvent.ref.items[refEvent.index].idMeal);
       });
       viewSpan.ref = this;
       viewSpan.index = i;
+    });
+
+    const itemsLike = this.window.likeItemAction();
+    itemsLike.forEach((itemLike, i) => {
+      itemLike.addEventListener('click', (event) => {
+        const refEvent = event.currentTarget;
+        refEvent.thisRef.classList.add('animate__animated');
+        refEvent.thisRef.classList.add('animate__rubberBand');
+        setTimeout(() => {
+          refEvent.thisRef.classList.remove('animate__animated');
+          refEvent.thisRef.classList.remove('animate__rubberBand');
+        }, 800, refEvent);
+        refEvent.classRef.addLikeToItem(refEvent.classRef.items[refEvent.index].idMeal)
+      });
+      itemLike.thisRef = itemLike;
+      itemLike.classRef = this;
+      itemLike.index = i;
     });
 
     const modalContent = this.window.modalContentAction();
@@ -95,6 +124,21 @@ class ApplicationEngine {
         modal.classList.add('d-none');
       }
     });
+
+    const winRef = this.window;
+    const interval = setInterval(() => {
+      const promiseRes = this.foodAPIConnection.getItemsByCategory(this.currCategory);
+      promiseRes.then((data) => {
+        const iRes = this.involvmentConnection.getLIkes();
+        iRes.then((likes) => {
+          this.items = data.meals;
+          winRef.updateDisplay(this.items, likes);
+        })
+      })
+        .catch((error) => {
+          throw error;
+        });
+    }, 300, winRef);
   }
 }
 export default ApplicationEngine;

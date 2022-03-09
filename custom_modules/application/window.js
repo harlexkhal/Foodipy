@@ -12,10 +12,20 @@ class Window {
     this.itemDescription = document.querySelector('.modal-item-description');
   }
 
-  displayItems = (items) => {
+  displayItems = (items, likes) => {
     this.itemCounter.innerHTML = items.length;
     let domContent = '';
     items.forEach((item) => {
+      const filtered = likes.filter((like) => {
+        const likeState = like.item_id === item.idMeal;
+        return likeState;
+      });
+
+      let likeCount = 0;
+      if (filtered.length > 0) {
+        likeCount = filtered[0].likes;
+      }
+      
       domContent = `${domContent}<li class="item">
       <img class="full-view zoom"
         src=${item.strMealThumb}
@@ -23,10 +33,10 @@ class Window {
       />
       <section class="caption">
         <h2 class="d-flex">
-        ${item.strMeal}<span><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span>
+        ${item.strMeal}<span class="item-likes">&nbsp; <i class="fa-solid fa-heart red-heart"></i>&nbsp;<i class="heart-counter">${likeCount}</i></span>
         </h2>
         <span class="view-comments"
-          ><i class="fa-solid fa-comments"></i>10 Comments</span
+          ><i class="fa-solid fa-comments blue-comment"></i> Comment</span
         >
       </section>
     </li>`;
@@ -60,6 +70,22 @@ class Window {
     });
   }
 
+  updateDisplay = (items, likes) => {
+    const allHearts = this.likeCounterAction();
+    allHearts.forEach((heart, index) => {
+      const filtered = likes.filter((like) => {
+        const likeState = like.item_id === items[index].idMeal;
+        return likeState;
+      });
+
+      let likeCount = 0;
+      if (filtered.length > 0) {
+        likeCount = filtered[0].likes;
+        heart.innerHTML = likeCount;
+      } 
+    });
+  }
+
   openModalAction = () => document.querySelector('#the-modal');
 
   closeModalAction = () => document.querySelector('#modal-closer');
@@ -69,5 +95,9 @@ class Window {
   fullViewImageAction = () => document.querySelectorAll('.full-view');
 
   modalContentAction = () => document.querySelector('.modal-content');
+
+  likeItemAction = () => document.querySelectorAll('.item-likes');
+
+  likeCounterAction = () => document.querySelectorAll('.heart-counter');
 }
 export default Window;
