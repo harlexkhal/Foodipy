@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Food Network</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <title>Food Network</title>
   <script defer src="core.js"></script></head>
   <body>
     <header>
@@ -14,169 +17,16 @@
           <a href="index.html"><h1>Foodipy</h1></a>
         </div>
         <ul class="nav-menu d-flex">
-          <li class="nav-item"><a href="#categories">Categories (4)</a></li>
-          <li class="nav-item"><a href="#meals">Meals</a></li>
+          <li class="nav-item"><a href="#categories">14 Categories</a></li>
+          <li class="nav-item"><a href="#meals"><span class="item-count">16</span> Meal(s) found!</a></li>
         </ul>
       </nav>
     </header>
     <main class="container">
-      <ul class="items d-grid">
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/dosa/dosa61.jpg"
-            alt="Dosa"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Dosa 1<span><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span>
-            </h2>
-
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/burger/burger57.jpg"
-            alt="Burger"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Burger 1<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/rice/rice35.jpg"
-            alt="Rice"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Rice 1<span><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span>
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/biryani/biryani15.jpg"
-            alt="Biryani"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Biryani 1<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/burger/burger56.jpg"
-            alt="Burger"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Burger 2<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/idly/idly15.jpg"
-            alt="Dosa"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Idly 1<span><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span>
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/dessert/dessert18.jpg"
-            alt="Dessert"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Dessert 1<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/samosa/samosa19.jpg"
-            alt="Samosa"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Samosa 1<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg"
-            alt="Dessert"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Dessert 2<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
-        <li class="item">
-          <img
-            src="https://foodish-api.herokuapp.com/images/dessert/dessert8.jpg"
-            alt="Dessert"
-          />
-          <section class="caption">
-            <h2 class="d-flex">
-              Dessert 3<span
-                ><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span
-              >
-            </h2>
-            <span class="comments"
-              ><i class="fa-solid fa-comments"></i>&nbsp;Comments</span
-            >
-          </section>
-        </li>
+      <img class="loading show" src="#" width="500" alt="logo"/>
+      <ul class="items d-grid meal-content">
+        <!--Dynamic Content here-->
+        <li>x</li>
       </ul>
     </main>
     <section id="the-modal" class="modal d-none">
@@ -184,47 +34,34 @@
         ><i class="fa-solid fa-xmark"></i
       ></span>
       <div class="modal-content container">
+        <img class="loading show" src="#" width="500" alt="logo"/>
         <div class="thumbnail">
           <iframe
+            class="modal-item-video"
             width="853"
             height="480"
-            src="https://www.youtube.com/embed/4aZr5hZXP_s"
+            src="#"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
           <div class="caption d-flex">
-            <h2>Name: Samosa</h2>
-            <span>Category: []</span>
-            <span>Area: []</span>
+            <h2 class = "item-name">Name: []</h2>
+            <h2 class="modal-item-category">Category: []</h2>
+            <h2 class="modal-item-area">Area: []</h>
             <h3>Instructions</h3>
-            <p>
-              Preheat oven to 350° F. Spray a 9x13-inch baking pan with
-              non-stick spray.\r\nCombine soy sauce, ½ cup water, brown sugar,
-              ginger and garlic in a small saucepan and cover. Bring to a boil
-              over medium heat. Remove lid and cook for one minute once
-              boiling.\r\nMeanwhile, stir together the corn starch and 2
-              tablespoons of water in a separate dish until smooth. Once sauce
-              is boiling, add mixture to the saucepan and stir to combine. Cook
-              until the sauce starts to thicken then remove from heat.\r\nPlace
-              the chicken breasts in the prepared pan. Pour one cup of the sauce
-              over top of chicken. Place chicken in oven and bake 35 minutes or
-              until cooked through. Remove from oven and shred chicken in the
-              dish using two forks.\r\n*Meanwhile, steam or cook the vegetables
-              according to package directions.\r\nAdd the cooked vegetables and
-              rice to the casserole dish with the chicken. Add most of the
-              remaining sauce, reserving a bit to drizzle over the top when
-              serving. Gently toss everything together in the casserole dish
-              until combined. Return to oven and cook 15 minutes. Remove from
-              oven and let stand 5 minutes before serving. Drizzle each serving
-              with remaining sauce. Enjoy!
+            <p class="modal-item-description">
+             <!--Dynamic Content-->
             </p>
           </div>
         </div>
         <section class="comments-container">
           <h2>Comments (2)</h2>
-          <ul class="comments">
+          <ul class="comments" style="overflow-y:scroll">
             <li class="comment">31/2/2022: Ndimangwa. Like it.</li>
+            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
+            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
+            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
             <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
           </ul>
         </section>
