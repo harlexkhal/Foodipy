@@ -5,7 +5,7 @@ class ApplicationEngine {
   constructor() {
     this.foodAPIConnection = new FoodNetwork();
     this.window = new Window();
-    this.Items = [];
+    this.items = [];
   }
 
   start = () => {
@@ -19,8 +19,8 @@ class ApplicationEngine {
       const rand = Math.floor(Math.random() * categoryList.length);
       const promiseRes = this.foodAPIConnection.getItemsByCategory(categoryList[rand].strCategory);
       promiseRes.then((data) => {
-        this.Items = data.meals;
-        this.window.displayItems(this.Items);
+        this.items = data.meals;
+        this.window.displayItems(this.items);
         this.#bindEvents();
       })
         .catch((error) => {

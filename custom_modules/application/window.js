@@ -1,15 +1,15 @@
 class Window {
   constructor() {
-    this.ItemList = document.querySelector('.meal-content');
+    this.itemList = document.querySelector('.meal-content');
     this.itemCounter = document.querySelector('.item-count');
     this.loaders = document.querySelectorAll('.loading');
 
     // modal
     this.itemName = document.querySelector('.item-name');
-    this.ItemCategoryModal = document.querySelector('.modal-item-category');
-    this.ItemAreaModal = document.querySelector('.modal-item-area');
-    this.ItemVideoModal = document.querySelector('.modal-item-video');
-    this.ItemDescription = document.querySelector('.modal-item-description');
+    this.itemCategoryModal = document.querySelector('.modal-item-category');
+    this.itemAreaModal = document.querySelector('.modal-item-area');
+    this.itemVideoModal = document.querySelector('.modal-item-video');
+    this.itemDescription = document.querySelector('.modal-item-description');
   }
 
   displayItems = (items) => {
@@ -31,18 +31,18 @@ class Window {
       </section>
     </li>`;
     });
-    this.ItemList.innerHTML = domContent;
+    this.itemList.innerHTML = domContent;
     this.hideLoader();
   }
 
   displayItem = (item) => {
     this.itemName.innerHTML = `Name: ${item.strMeal}`;
-    this.ItemCategoryModal.innerHTML = `Category: <span class="green-text animate__animated animate__bounceInLeft">${item.strCategory}</span>`;
-    this.ItemAreaModal.innerHTML = `Area: <span class="red-text animate__animated animate__bounceInLeft"> ${item.strArea} </span>`;
+    this.itemCategoryModal.innerHTML = `Category: <span class="green-text animate__animated animate__bounceInLeft">${item.strCategory}</span>`;
+    this.itemAreaModal.innerHTML = `Area: <span class="red-text animate__animated animate__bounceInLeft"> ${item.strArea} </span>`;
     const videoUrl = item.strYoutube.split('=');
     const ID = videoUrl.pop();
-    this.ItemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
-    this.ItemDescription.innerHTML = item.strInstructions;
+    this.itemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
+    this.itemDescription.innerHTML = item.strInstructions;
     this.hideLoader();
   }
 
