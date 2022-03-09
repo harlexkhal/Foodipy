@@ -94,4 +94,40 @@ footer {
   border: none;
 }
 
+.loading {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.red-text {
+  color: red;
+  font-family: 'Comic Sans MS', serif;
+  font-size: large;
+}
+
+.green-text {
+  color: green;
+  font-family: 'Comic Sans MS', serif;
+  font-size: large;
+}
+
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
 @import url('./utility.css');
