@@ -2,7 +2,6 @@
 
 > The app lists different foods from different areas in the word with opions from people worldwide.
 
-
 ## Built With
 
 - JavaScript, HTML, CSS
@@ -11,11 +10,9 @@
 
 [Live Demo Link](https://harlexkhal.github.io/Foodipy/)
 
-
 ## Getting Started
 
 **This is an example of how you may give instructions on setting up your project locally.**
-
 
 ### Setup
 
@@ -32,6 +29,7 @@
 4. npm start to serve into local 8080 port
 
 ### Deployment
+
 https://harlexkhal.github.io/Foodipy/
 
 ## Authors
@@ -42,7 +40,13 @@ https://harlexkhal.github.io/Foodipy/
 - Twitter: [@MnembaChambuya](https://twitter.com/MnembaChambuya)
 - LinkedIn: [mnemba-chambuya](https://linkedin.com/in/mnemba-chambuya)
 
-## Screenshot ![see](./src/assets/images/screenshot.png?raw=true "Title")
+👤 **Alexander Oguzie-Ibeh**
+
+- GitHub: [@mnekx](https://github.com/harlexkhal)
+- Twitter: [@MnembaChambuya](https://twitter.com/harlexkhal)
+- LinkedIn: [mnemba-chambuya](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164/)
+
+## Screenshot ![see](./src/assets/images/screenshot.png?raw=true 'Title')
 
 ## 🤝 Contributing
 
