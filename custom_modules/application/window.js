@@ -25,7 +25,7 @@ class Window {
       if (filtered.length > 0) {
         likeCount = filtered[0].likes;
       }
-      
+
       domContent = `${domContent}<li class="item">
       <img class="full-view zoom"
         src=${item.strMealThumb}
@@ -82,7 +82,7 @@ class Window {
       if (filtered.length > 0) {
         likeCount = filtered[0].likes;
         heart.innerHTML = likeCount;
-      } 
+      }
     });
   }
 

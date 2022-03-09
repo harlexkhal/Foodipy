@@ -30,7 +30,7 @@ class ApplicationEngine {
           this.items = data.meals;
           this.window.displayItems(this.items, likes);
           this.#bindEvents();
-        })
+        });
       })
         .catch((error) => {
           throw error;
@@ -98,7 +98,7 @@ class ApplicationEngine {
           refEvent.thisRef.classList.remove('animate__animated');
           refEvent.thisRef.classList.remove('animate__rubberBand');
         }, 800, refEvent);
-        refEvent.classRef.addLikeToItem(refEvent.classRef.items[refEvent.index].idMeal)
+        refEvent.classRef.addLikeToItem(refEvent.classRef.items[refEvent.index].idMeal);
       });
       itemLike.thisRef = itemLike;
       itemLike.classRef = this;
@@ -126,14 +126,14 @@ class ApplicationEngine {
     });
 
     const winRef = this.window;
-    const interval = setInterval(() => {
+    setInterval(() => {
       const promiseRes = this.foodAPIConnection.getItemsByCategory(this.currCategory);
       promiseRes.then((data) => {
         const iRes = this.involvmentConnection.getLIkes();
         iRes.then((likes) => {
           this.items = data.meals;
           winRef.updateDisplay(this.items, likes);
-        })
+        });
       })
         .catch((error) => {
           throw error;
