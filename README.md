@@ -1,5 +1,7 @@
 # JavaScript-Capstone
 
+## Screenshot ![see](./src/assets/images/screenshot.png?raw=true 'Title')
+
 > The app lists different foods from different areas in the word with opions from people worldwide.
 
 ## Built With
@@ -45,8 +47,6 @@ https://harlexkhal.github.io/Foodipy/
 - GitHub: [@mnekx](https://github.com/harlexkhal)
 - Twitter: [@MnembaChambuya](https://twitter.com/harlexkhal)
 - LinkedIn: [mnemba-chambuya](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164/)
-
-## Screenshot ![see](./src/assets/images/screenshot.png?raw=true 'Title')
 
 ## 🤝 Contributing
 
