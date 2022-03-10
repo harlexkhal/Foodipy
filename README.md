@@ -6,7 +6,7 @@
 
 - JavaScript, HTML, CSS
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://harlexkhal.github.io/Foodipy/)
 
