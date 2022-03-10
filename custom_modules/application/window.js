@@ -1,21 +1,33 @@
 class Window {
   constructor() {
-    this.ItemList = document.querySelector('.meal-content');
+    this.itemList = document.querySelector('.meal-content');
     this.itemCounter = document.querySelector('.item-count');
     this.loaders = document.querySelectorAll('.loading');
 
     // modal
     this.itemName = document.querySelector('.item-name');
-    this.ItemCategoryModal = document.querySelector('.modal-item-category');
-    this.ItemAreaModal = document.querySelector('.modal-item-area');
-    this.ItemVideoModal = document.querySelector('.modal-item-video');
-    this.ItemDescription = document.querySelector('.modal-item-description');
+    this.itemCategoryModal = document.querySelector('.modal-item-category');
+    this.itemAreaModal = document.querySelector('.modal-item-area');
+    this.itemVideoModal = document.querySelector('.modal-item-video');
+    this.itemDescription = document.querySelector('.modal-item-description');
+    this.itemComments = document.querySelector('.user-comments');
+    this.itemCommentsCounter = document.querySelector('.comment-count-info');
   }
 
-  displayItems = (items) => {
+  displayItems = (items, likes) => {
     this.itemCounter.innerHTML = items.length;
     let domContent = '';
     items.forEach((item) => {
+      const filtered = likes.filter((like) => {
+        const likeState = like.item_id === item.idMeal;
+        return likeState;
+      });
+
+      let likeCount = 0;
+      if (filtered.length > 0) {
+        likeCount = filtered[0].likes;
+      }
+
       domContent = `${domContent}<li class="item">
       <img class="full-view zoom"
         src=${item.strMealThumb}
@@ -23,27 +35,42 @@ class Window {
       />
       <section class="caption">
         <h2 class="d-flex">
-        ${item.strMeal}<span><i class="fa-solid fa-heart"></i>&nbsp; 5 likes</span>
+        ${item.strMeal}<span class="item-likes">&nbsp; <i class="fa-solid fa-heart red-heart"></i>&nbsp;<i class="heart-counter">${likeCount}</i></span>
         </h2>
         <span class="view-comments"
-          ><i class="fa-solid fa-comments"></i>10 Comments</span
+          ><i class="fa-solid fa-comments blue-comment"></i> Comment</span
         >
       </section>
     </li>`;
     });
-    this.ItemList.innerHTML = domContent;
+    this.itemList.innerHTML = domContent;
     this.hideLoader();
   }
 
-  displayItem = (item) => {
+  displayItem = (item, comments) => {
     this.itemName.innerHTML = `Name: ${item.strMeal}`;
-    this.ItemCategoryModal.innerHTML = `Category: <span class="green-text animate__animated animate__bounceInLeft">${item.strCategory}</span>`;
-    this.ItemAreaModal.innerHTML = `Area: <span class="red-text animate__animated animate__bounceInLeft"> ${item.strArea} </span>`;
+    this.itemCategoryModal.innerHTML = `Category: <span class="green-text animate__animated animate__bounceInLeft">${item.strCategory}</span>`;
+    this.itemAreaModal.innerHTML = `Area: <span class="red-text animate__animated animate__bounceInLeft"> ${item.strArea} </span>`;
     const videoUrl = item.strYoutube.split('=');
     const ID = videoUrl.pop();
-    this.ItemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
-    this.ItemDescription.innerHTML = item.strInstructions;
+    this.itemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
+    this.itemDescription.innerHTML = item.strInstructions;
+    this.itemCommentsCounter.innerHTML = 'Comments (0)';
+
+    this.displayItemComments(comments);
     this.hideLoader();
+  }
+
+  displayItemComments = (comments) => {
+    let domContent = '';
+    if (comments.length <= 0) {
+      domContent = '<li class="comment red-text">No comments yet, be the first 😉</li>';
+    }
+    comments.forEach((comment) => {
+      domContent = `${domContent}<li class="comment"><i>${comment.creation_date}: </i> <span class="red-text">${comment.username}:</span> <span class="green-text">${comment.comment}</span></li>`;
+    });
+    this.itemComments.innerHTML = domContent;
+    this.itemCommentsCounter.innerHTML = `Comments (${comments.length})`;
   }
 
   showLoader = () => {
@@ -60,7 +87,29 @@ class Window {
     });
   }
 
+  updateDisplay = (items, likes) => {
+    const allHearts = this.likeCounterAction();
+    allHearts.forEach((heart, index) => {
+      const filtered = likes.filter((like) => {
+        const likeState = like.item_id === items[index].idMeal;
+        return likeState;
+      });
+
+      let likeCount = 0;
+      if (filtered.length > 0) {
+        likeCount = filtered[0].likes;
+        heart.innerHTML = likeCount;
+      }
+    });
+  }
+
   openModalAction = () => document.querySelector('#the-modal');
+
+  commentformAction = () => document.querySelector('.comment-form');
+
+  commentformNameInputAction = () => document.querySelector('.username');
+
+  commentformBodyInputAction = () => document.querySelector('.comment-body');
 
   closeModalAction = () => document.querySelector('#modal-closer');
 
@@ -69,5 +118,11 @@ class Window {
   fullViewImageAction = () => document.querySelectorAll('.full-view');
 
   modalContentAction = () => document.querySelector('.modal-content');
+
+  likeItemAction = () => document.querySelectorAll('.item-likes');
+
+  likeCounterAction = () => document.querySelectorAll('.heart-counter');
+
+  commentsListAction = () => this.itemComments;
 }
 export default Window;
