@@ -173,7 +173,7 @@ class ApplicationEngine {
         });
     }, 300);
 
-    this.commentRouterInterval = setInterval(this.pollComments, 500);
+    this.commentRouterInterval = setInterval(this.pollComments, 800);
   }
 
   pollComments = () => {
