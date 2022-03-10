@@ -130,5 +130,15 @@ footer {
   transform: scale(1.3);
 }
 
+.red-heart {
+  color: red;
+  font-size: medium;
+}
+
+.blue-comment {
+  color: rgb(85, 85, 255);
+  font-size: medium;
+}
+
 @import url('./utility.css');
 @import url('./mobile.css');

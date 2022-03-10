@@ -17,8 +17,8 @@
           <a href="index.html"><h1>Foodipy</h1></a>
         </div>
         <ul class="nav-menu d-flex">
-          <li class="nav-item"><a href="#categories">14 Categories</a></li>
-          <li class="nav-item"><a href="#meals"><span class="item-count">16</span> Meal(s) found!</a></li>
+          <li class="nav-item"><a href="index.html">View more</a></li>
+          <li class="nav-item"><a href="index.html"><span class="item-count">0</span> Meal(s) found!</a></li>
         </ul>
       </nav>
     </header>
@@ -56,24 +56,21 @@
           </div>
         </div>
         <section class="comments-container">
-          <h2>Comments (2)</h2>
-          <ul class="comments">
-            <li class="comment">31/2/2022: Ndimangwa. Like it.</li>
-            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
-            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
-            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
-            <li class="comment">31/3/2022: Mwakalebela. Like it.</li>
+          <h2 class="comment-count-info">Comments (0)</h2>
+          <ul class="user-comments">
+            <li class="comment red-text">No comments yet, be the first 😉</li>
           </ul>
         </section>
         <form class="comment-form" id="add-comment" action="#">
           <fieldset class="comment-fieldset d-flex">
             <legend><h2>Add a Comment</h2></legend>
             <label for="name">
-              <input required type="text" id="name" placeholder="Your name" />
+              <input required type="text" class="username" id="name" placeholder="Your name" />
             </label>
             <label for="insights">
               <textarea
                 required
+                class="comment-body"
                 cols="30"
                 rows="10"
                 id="insights"
@@ -85,6 +82,6 @@
         </form>
       </div>
     </section>
-    <footer class="d-flex">Created By Microverse under CC License.</footer>
+    <footer class="d-flex">Created By Alexander Oguzie-Ibeh & Mnemba Chambuya. (C) 2022</footer>
   </body>
 </html>
