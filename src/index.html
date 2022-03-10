@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <title>Food Network</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar container d-flex">
+        <div class="logo">
+          <a href="index.html"><h1>Foodipy</h1></a>
+        </div>
+        <ul class="nav-menu d-flex">
+          <li class="nav-item"><a href="index.html">View more</a></li>
+          <li class="nav-item"><a href="index.html"><span class="item-count">0</span> Meal(s) found!</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <img class="loading show" src="#" width="500" alt="logo"/>
+      <ul class="items d-grid meal-content">
+        <!--Dynamic Content here-->
+        <li>x</li>
+      </ul>
+    </main>
+    <section id="the-modal" class="modal d-none">
+      <span class="close-modal" id="modal-closer"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
+      <div class="modal-content container">
+        <img class="loading show" src="#" width="500" alt="logo"/>
+        <div class="thumbnail">
+          <iframe
+            class="modal-item-video"
+            width="853"
+            height="480"
+            src="#"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div class="caption d-flex">
+            <h2 class = "item-name">Name: []</h2>
+            <h2 class="modal-item-category">Category: []</h2>
+            <h2 class="modal-item-area">Area: []</h2>
+            <h3>Instructions</h3>
+            <p class="modal-item-description">
+             <!--Dynamic Content-->
+            </p>
+          </div>
+        </div>
+        <section class="comments-container">
+          <h2 class="comment-count-info">Comments (0)</h2>
+          <ul class="user-comments">
+            <li class="comment red-text">No comments yet, be the first 😉</li>
+          </ul>
+        </section>
+        <form class="comment-form" id="add-comment" action="#">
+          <fieldset class="comment-fieldset d-flex">
+            <legend><h2>Add a Comment</h2></legend>
+            <label for="name">
+              <input required type="text" class="username" id="name" placeholder="Your name" />
+            </label>
+            <label for="insights">
+              <textarea
+                required
+                class="comment-body"
+                cols="30"
+                rows="10"
+                id="insights"
+                placeholder="Your insights"
+              ></textarea>
+            </label>
+            <button type="submit">Comment</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <footer class="d-flex">Created By Alexander Oguzie-Ibeh & Mnemba Chambuya. (C) 2022</footer>
+  </body>
+</html>
