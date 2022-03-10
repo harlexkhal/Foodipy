@@ -30,6 +30,10 @@
 3. npm install
 4. npm start to serve into local 8080 port
 
+### Run tests
+
+npm run test
+
 ### Deployment
 
 https://harlexkhal.github.io/Foodipy/
