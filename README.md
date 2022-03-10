@@ -44,9 +44,9 @@ https://harlexkhal.github.io/Foodipy/
 
 👤 **Alexander Oguzie-Ibeh**
 
-- GitHub: [@mnekx](https://github.com/harlexkhal)
-- Twitter: [@MnembaChambuya](https://twitter.com/harlexkhal)
-- LinkedIn: [mnemba-chambuya](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164/)
+- GitHub: [@harlexkhal](https://github.com/harlexkhal)
+- Twitter: [@harlexkhal](https://twitter.com/harlexkhal)
+- LinkedIn: [alexander-oguzie-ibeh-776814164](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164/)
 
 ## 🤝 Contributing
 
