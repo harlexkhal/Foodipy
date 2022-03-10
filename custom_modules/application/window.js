@@ -47,7 +47,7 @@ class Window {
     this.hideLoader();
   }
 
-  displayItem = (item) => {
+  displayItem = (item, comments) => {
     this.itemName.innerHTML = `Name: ${item.strMeal}`;
     this.itemCategoryModal.innerHTML = `Category: <span class="green-text animate__animated animate__bounceInLeft">${item.strCategory}</span>`;
     this.itemAreaModal.innerHTML = `Area: <span class="red-text animate__animated animate__bounceInLeft"> ${item.strArea} </span>`;
@@ -55,13 +55,17 @@ class Window {
     const ID = videoUrl.pop();
     this.itemVideoModal.src = `https://www.youtube.com/embed/${ID}?autoplay=0&loop=1&mute=1&playlist=${ID}`;
     this.itemDescription.innerHTML = item.strInstructions;
-    this.itemComments.innerHTML = '<li class="comment red-text">Comment on this meal to see other comments! if exist</li>';
     this.itemCommentsCounter.innerHTML = 'Comments (0)';
+
+    this.displayItemComments(comments);
     this.hideLoader();
   }
 
   displayItemComments = (comments) => {
     let domContent = '';
+    if (comments.length <= 0) {
+      domContent = '<li class="comment red-text">No comments yet, be the first 😉</li>';
+    }
     comments.forEach((comment) => {
       domContent = `${domContent}<li class="comment"><i>${comment.creation_date}: </i> <span class="red-text">${comment.username}:</span> <span class="green-text">${comment.comment}</span></li>`;
     });

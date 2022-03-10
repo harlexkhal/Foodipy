@@ -12,6 +12,8 @@ class ApplicationEngine {
     this.items = [];
     this.currCategory = '';
     this.currSelectedItemID = -1;
+    this.isModalOpen = false;
+    this.commentRouterInterval = null;
   }
 
   start = () => {
@@ -47,9 +49,16 @@ class ApplicationEngine {
     const res = this.foodAPIConnection.getItemByID(id);
     res.then((data) => {
       const iRes = this.involvmentConnection.getComments(id);
-      iRes.then(() => {
-        this.currSelectedItemID = id;
-        this.window.displayItem(data.meals[0]);
+      iRes.then((response) => {
+        if (response.ok) {
+          response.json().then((comments) => {
+            this.currSelectedItemID = id;
+            this.window.displayItem(data.meals[0], comments);
+          });
+        } else {
+          this.currSelectedItemID = id;
+          this.window.displayItem(data.meals[0], []);
+        }
       });
     })
       .catch((error) => {
@@ -71,6 +80,7 @@ class ApplicationEngine {
     modalCloser.addEventListener('click', () => {
       modal.classList.remove('d-block');
       modal.classList.add('d-none');
+      this.isModalOpen = false;
     });
 
     const commentSpans = this.window.commentsButtonAction();
@@ -80,6 +90,7 @@ class ApplicationEngine {
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
         refEvent.ref.FetchFoodItemByID(refEvent.ref.items[refEvent.index].idMeal);
+        refEvent.ref.isModalOpen = true;
       });
       span.ref = this;
       span.index = i;
@@ -92,6 +103,7 @@ class ApplicationEngine {
         modal.classList.remove('d-none');
         modal.classList.add('d-block');
         refEvent.ref.FetchFoodItemByID(refEvent.ref.items[refEvent.index].idMeal);
+        refEvent.ref.isModalOpen = true;
       });
       viewSpan.ref = this;
       viewSpan.index = i;
@@ -131,6 +143,7 @@ class ApplicationEngine {
       if (!isClickInsideElementModal && !isClickInsideModalOpener) {
         modal.classList.remove('d-block');
         modal.classList.add('d-none');
+        this.isModalOpen = false;
       }
     });
 
@@ -141,30 +154,45 @@ class ApplicationEngine {
       this.addCommentToItem(this.currSelectedItemID, nameInput.value, commentBody.value);
       nameInput.value = '';
       commentBody.value = '';
-      this.window.commentsListAction().innerHTML = '<i class="green-text">Loading all comments ...<i>';
-      setTimeout(() => {
-        const iRes = this.involvmentConnection.getComments(this.currSelectedItemID);
-        iRes.then((comments) => {
-          this.window.displayItemComments(comments);
-        });
-      }, 800);
+      this.window.commentsListAction().innerHTML = `${this.window.commentsListAction().innerHTML} <i class="green-text">Adding your comments ...<i>`;
+      this.commentRouterInterval = setInterval(this.pollComments, 3000);
       event.preventDefault();
     });
 
-    const winRef = this.window;
     setInterval(() => {
       const promiseRes = this.foodAPIConnection.getItemsByCategory(this.currCategory);
       promiseRes.then((data) => {
         const iRes = this.involvmentConnection.getLIkes();
         iRes.then((likes) => {
           this.items = data.meals;
-          winRef.updateDisplay(this.items, likes);
+          this.window.updateDisplay(this.items, likes);
         });
       })
         .catch((error) => {
           throw error;
         });
-    }, 300, winRef);
+    }, 300);
+
+    this.commentRouterInterval = setInterval(this.pollComments, 500);
+  }
+
+  pollComments = () => {
+    if (this.isModalOpen) {
+      const iRes = this.involvmentConnection.getComments(this.currSelectedItemID);
+      iRes.then((response) => {
+        if (response.ok) {
+          response.json().then((comments) => {
+            this.window.displayItemComments(comments);
+          });
+        } else {
+          this.window.displayItemComments([]);
+          clearInterval(this.commentRouterInterval);
+        }
+      })
+        .catch((error) => {
+          throw error;
+        });
+    }
   }
 }
 export default ApplicationEngine;

@@ -33,7 +33,7 @@ class InteractionGateway extends NetworkGateway {
 
   getComments = async (itemID) => {
     const data = await fetch(`${this.baseurl}${this.dbInstance}/comments?item_id=${itemID}`, { method: 'GET' });
-    return data.json();
+    return data;
   }
 }
 export default InteractionGateway;
