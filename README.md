@@ -2,7 +2,7 @@
 
 ## Screenshot ![see](./src/assets/images/screenshot.png?raw=true 'Title')
 
-> The app lists different foods from different areas in the world with opions from people worldwide.
+> The app lists different foods from different areas in the world with opinions from people worldwide.
 
 ## Built With
 
