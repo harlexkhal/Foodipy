@@ -21,13 +21,13 @@ class InteractionGateway extends NetworkGateway {
     return data.json();
   }
 
-  addComment = async (itemID, _userName, _comment) => {
+  addComment = async (itemID, userName, userComment) => {
     await fetch(`${this.baseurl}${this.dbInstance}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ item_id: itemID, username: _userName, comment: _comment }),
+      body: JSON.stringify({ item_id: itemID, username: userName, comment: userComment }),
     });
   }
 
