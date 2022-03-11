@@ -3,7 +3,7 @@
 > This is a group project being built in our second module of our curriculum at microverse. its a web application for listing all of the food sources and how to prepare them, using a video and an instruction guide
 ![screenshot](branding/demo.png)
 
-Our goal here is to Build an application that calls from a large data set of food from an API and also integrate some user involvement were you can like and comment on your favorite meal. click [here](https://harlexkhal.github.io/Foodipy/) to see deployed live version
+Our goal here is to Build an application that calls from a large data set of food from an API and also integrate some user involvement where you can like and comment on your favorite meal. click [here](https://harlexkhal.github.io/Foodipy/) to see deployed live version
 
 ### Features implemented so far are:
 
