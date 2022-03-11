@@ -77,5 +77,5 @@ All source code files are licensed under the permissive zlib license
 (http://opensource.org/licenses/Zlib) unless marked differently in a particular folder/file.
 
 ## Author
-- **Mnemba Chambuya** -  [github](https://github.com/mnekx), LinkedIn: [linkein](https://linkedin.com/in/mnemba-chambuya), [twitter](https://twitter.com/MnembaChambuya)
+- **Mnemba Chambuya** -  [github](https://github.com/mnekx), [linkedin](https://linkedin.com/in/mnemba-chambuya), [twitter](https://twitter.com/MnembaChambuya)
 - **Alexander Oguzie-Ibeh** - [github](https://github.com/harlexkhal), [linkedin](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164), [twitter](https://twitter.com/harlexkhal)
