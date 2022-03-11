@@ -65,11 +65,11 @@ This should open the page in your localhost on port 8080. then you'd be able to 
 
 ## Unit-Testing
 
-You can find each unit test cases in the ```testbed``` folder located in the parent source directory of the project. you can create your own custom unit test and test it by running
+You can find each unit test cases in the ```__Testbase__``` folder located in the parent source directory of the project. you can create your own custom unit test and test it by running
 ```
 npm run test
 ```
-This should run all unit test found in the ```todolist.test.js``` from the ```testbed``` folder.
+This should run all unit test found in the ```unit.test.js``` from the ```__Testbase__``` folder.
 
 ## License
 
@@ -77,5 +77,5 @@ All source code files are licensed under the permissive zlib license
 (http://opensource.org/licenses/Zlib) unless marked differently in a particular folder/file.
 
 ## Author
-- **Mnemba Chambuya** -  [@mnekx](https://github.com/mnekx), LinkedIn: [mnemba-chambuya](https://linkedin.com/in/mnemba-chambuya), [@MnembaChambuya](https://twitter.com/MnembaChambuya)
+- **Mnemba Chambuya** -  [github](https://github.com/mnekx), LinkedIn: [linkein](https://linkedin.com/in/mnemba-chambuya), [twitter](https://twitter.com/MnembaChambuya)
 - **Alexander Oguzie-Ibeh** - [github](https://github.com/harlexkhal), [linkedin](https://www.linkedin.com/in/alexander-oguzie-ibeh-776814164), [twitter](https://twitter.com/harlexkhal)
